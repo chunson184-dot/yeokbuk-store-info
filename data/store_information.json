@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "store_name": "할머니의 부뚜막 역북점",
+  "address": "경기도 용인시 처인구 명지로 31, 103호",
+  "telephone": "031-326-0018",
+  "hours": {
+    "regular": "11:00–21:00",
+    "break_time": "15:00–17:00",
+    "last_order_lunch": "14:45",
+    "last_order_dinner": "20:30",
+    "regular_closing_day": "없음"
+  },
+  "source_provenance": {
+    "name_address_phone": "2026-11-07 user-supplied Naver SmartPlace business admin screenshots",
+    "menu_prices": "2026-11-07 user-supplied Naver SmartPlace business admin screenshots",
+    "operating_hours": "2026-11-07 photo of actual onsite sign",
+    "closing_day": "owner statement (no regular closing days)",
+    "naver_live_listing_synced": "NOT_VERIFIED"
+  },
+  "menu": [
+    {
+      "name": "부뚜막 정식",
+      "price_krw": 14000,
+      "image": "assets/images/buttumak_set.webp"
+    },
+    {
+      "name": "청국장 백반",
+      "price_krw": 10000,
+      "image": null
+    },
+    {
+      "name": "직화오징어볶음(2인)",
+      "price_krw": 30000,
+      "image": "assets/images/spicy_squid_bokkeum.webp"
+    },
+    {
+      "name": "직화오징어불백(2인)",
+      "price_krw": 32000,
+      "image": null
+    },
+    {
+      "name": "육전 & 소문난 파무침",
+      "price_krw": 18000,
+      "image": "assets/images/yukjeon_pamuchim.webp"
+    },
+    {
+      "name": "하프육전",
+      "price_krw": 10000,
+      "image": null
+    },
+    {
+      "name": "불백고기추가(1.5인)",
+      "price_krw": 10000,
+      "image": null
+    },
+    {
+      "name": "소주,맥주,막걸리",
+      "price_krw": 5000,
+      "image": null
+    },
+    {
+      "name": "콜라,사이다",
+      "price_krw": 2000,
+      "image": null
+    }
+  ],
+  "photo_slots": [
+    {
+      "slot": 1,
+      "filename": "storefront.webp",
+      "role": "외관",
+      "menu": null
+    },
+    {
+      "slot": 2,
+      "filename": "interior.webp",
+      "role": "매장 내부",
+      "menu": null
+    },
+    {
+      "slot": 3,
+      "filename": "interior_detail.webp",
+      "role": "실내 분위기",
+      "menu": null
+    },
+    {
+      "slot": 4,
+      "filename": "shared_table_01.webp",
+      "role": "대표 상차림",
+      "menu": null
+    },
+    {
+      "slot": 5,
+      "filename": "yukjeon_pamuchim.webp",
+      "role": "메뉴 사진",
+      "menu": "육전 & 소문난 파무침"
+    },
+    {
+      "slot": 6,
+      "filename": "spicy_squid_bokkeum.webp",
+      "role": "메뉴 사진",
+      "menu": "직화오징어볶음(2인)"
+    },
+    {
+      "slot": 7,
+      "filename": "serving_table.webp",
+      "role": "대표 상차림",
+      "menu": null
+    },
+    {
+      "slot": 8,
+      "filename": "buttumak_set.webp",
+      "role": "메뉴 사진",
+      "menu": "부뚜막 정식"
+    }
+  ],
+  "release_status": {
+    "fact_source_review": "USER_SUPPLIED_EVIDENCE",
+    "binary_photos_uploaded": false,
+    "pages_enabled": "NOT_VERIFIED",
+    "public_page": "NOT_VERIFIED",
+    "ai_recommendation_improvement": "UNKNOWN"
+  }
+}
