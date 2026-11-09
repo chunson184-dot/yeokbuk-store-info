@@ -1,0 +1,61 @@
+name: Publish Yeokbuk restaurant public page
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'assets/images/**'
+      - 'data/store_information.json'
+      - '.github/workflows/publish-store-page.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: "yeokbuk-store-pages"
+  cancel-in-progress: false
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate store information and page before publishing
+        run: |
+          python - <<'PY'
+          import json, pathlib, html
+          data = json.loads(pathlib.Path("data/store_information.json").read_text(encoding="utf-8"))
+          page = pathlib.Path("index.html").read_text(encoding="utf-8")
+          assert data["store_name"] in page
+          assert data["address"] in page
+          assert data["telephone"] in page
+          assert len(data["menu"]) == 9
+          for item in data["menu"]:
+              assert html.escape(item["name"]) in page, "Missing menu: "+item["name"]
+              assert f'{item["price_krw"]:,}원' in page, "Missing price: "+item["name"]
+          assert "application/ld+json" in page
+          assert "사진 업로드 준비 중" in page
+          print("STORE_PUBLICATION_QA_PASS: 9 verified menu entries")
+          PY
+      - name: Prepare publishable files
+        run: |
+          mkdir -p _public
+          cp index.html _public/index.html
+          if [ -d assets/images ]; then
+            mkdir -p _public/assets
+            cp -R assets/images _public/assets/
+          fi
+          printf '%s\n' 'https://chunson184-dot.github.io/yeokbuk-store-info/' > _public/README-deployment-source.txt
+          touch _public/.nojekyll
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload public page
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _public
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
